@@ -32,13 +32,19 @@ namespace example
             //b1.Id = 1;
             //Console.WriteLine(b1.Id);
             //Console.WriteLine(b1.Balance);
-            CaimanBankAccount caimanusecase = new CaimanBankAccount(101,"ThisCodeIsSecret");
+            //CaimanBankAccount caimanusecase = new CaimanBankAccount(101,"ThisCodeIsSecret");
             //caimanusecase.Deposit(100);
             //Pillar of Obj Oriented => Polimorphism
-            BankAccount ba = new CaimanBankAccount(101,"example");
-            HandleBankAccount(caimanusecase);
-            BankAccount ba2 = new BankAccount(101);
-            HandleBankAccount(ba2);
+            //BankAccount ba = new CaimanBankAccount(101,"example");
+            //HandleBankAccount(caimanusecase);
+            //BankAccount ba2 = new BankAccount(101);
+            //HandleBankAccount(ba2);
+            ClassTemplate ct1 = new ClassTemplate(123);
+            ClassTemplate ct2 = new ClassTemplate(123,"Ciao");
+            ct1.increasevalfunc(5);
+            ct2.PrintToCento(60);
+
+
         }
         static void Myfunction(int x, string name)
         {
