@@ -4,10 +4,10 @@ using System.Text;
 
 namespace example.Bank
 {
-    public class BankAccount
+    public class BankAccount : Object //Object is the mother class for the orphan class
     {
         //encapsulation
-        private decimal balance;
+        protected decimal balance;
         //private int id;
         private string id;
         private string name;
@@ -47,20 +47,29 @@ namespace example.Bank
         //public BankAccount()
         //{
         //    Console.WriteLine("Default Constructor");
-       // }
+        // }
+        //Contructors
+        //public BankAccount()
+        //{
+        //    balance = 100;
+        //    Console.WriteLine("Default Constructor");
+        //}
+
         public BankAccount(decimal d)
         {
             balance = d;
-            Console.WriteLine("Constructor taking initial Balance");
+            Console.WriteLine("BankAccount Constructor taking initial Balance");
         }
-        public BankAccount(int d)
+        public BankAccount(decimal d,string s)
         {
             balance = d;
-            Console.WriteLine("Constructor taking initial Balance");
+            Console.WriteLine("BankAccount Constructor taking initial Balance");
         }
-        public decimal Deposit(decimal amount)
+
+        public virtual decimal Deposit(decimal amount)
         {
             this.balance += amount;
+            Console.WriteLine("executing deposit of mother");
             return this.balance;
         }
         public decimal Withdrawl(decimal amount)
