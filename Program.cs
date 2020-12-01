@@ -39,12 +39,26 @@ namespace example
             //HandleBankAccount(caimanusecase);
             //BankAccount ba2 = new BankAccount(101);
             //HandleBankAccount(ba2);
-            ClassTemplate ct1 = new ClassTemplate(123);
-            ClassTemplate ct2 = new ClassTemplate(123,"Ciao");
-            ct1.increasevalfunc(5);
-            ct2.PrintToCento(60);
 
 
+            //ClassTemplate ct1 = new ClassTemplate(123);
+            //ClassTemplate ct2 = new ClassTemplate(123,"Ciao");
+            //ct1.increasevalfunc(5);
+            //ct2.PrintToCento(60);
+
+            //Polimophism => Runtime case
+            BankAccount b;
+            Random r = new Random();
+            if ((r.Next() % 2) == 0)
+            {
+                b = new BankAccount(100);
+            }
+            else
+            {
+                b = new CaimanBankAccount(100, "cIAO");
+
+            }
+            b.Deposit(100);
         }
         static void Myfunction(int x, string name)
         {
