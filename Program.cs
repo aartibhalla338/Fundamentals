@@ -47,6 +47,7 @@ namespace example
             //ct2.PrintToCento(60);
 
             //Polimophism => Runtime case
+            //It's usefull to call with a class with different constructor to access to Overrided functions
             BankAccount b;
             Random r = new Random();
             if ((r.Next() % 2) == 0)
@@ -59,6 +60,24 @@ namespace example
 
             }
             b.Deposit(100);
+            //AbstractBank.BankAccount x = new AbstractBank.BankAccount(100);
+            AbstractBank.BankAccount x = new AbstractBank.ItalianBankAccount(100, "Margherita");
+            try
+            {
+            b.Withdrawl(1000);
+
+            }
+            catch(InsufficientFoundException bex)
+            {
+                Console.WriteLine(bex.Message);
+                Console.WriteLine(bex.StackTrace);
+            }
+            finally
+            {
+                Console.WriteLine("Close Action(ex. Db Connection) despite everything!");           
+            }
+
+          
         }
         static void Myfunction(int x, string name)
         {
@@ -66,8 +85,12 @@ namespace example
         static void HandleBankAccount(BankAccount a)
         {
             if (a.Balance > 100) 
-            { 
+            {
+
+                //CaimanBankAccount c = (CaimanBankAccount)a; 
+                //c.Deposit(10);
                 a.Deposit(10);
+
             }
         }
 

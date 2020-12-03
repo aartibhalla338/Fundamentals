@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace example.Bank
+namespace example.AbstractBank
 {
-    public class BankAccount : Object //Object is the mother class for the orphan class
+    public abstract class BankAccount : Object //Object is the mother class for the orphan class
     {
         //encapsulation
         protected decimal balance;
@@ -65,26 +65,16 @@ namespace example.Bank
             balance = d;
             Console.WriteLine("BankAccount Constructor taking initial Balance");
         }
-
-        public virtual decimal Deposit(decimal amount)
-        {
-            this.balance += amount;
-            Console.WriteLine("executing deposit of mother");
-            return this.balance;
-        }
+        //Abstract Method
+        public abstract decimal Deposit(decimal amount);
         public decimal Withdrawl(decimal amount)
         {
             if (amount < this.balance)
             {
                 this.balance -= amount;
-                return this.balance;  
-            }  
-            else
-            {
-                throw new InsufficientFoundException("Error! You Are trying to draw more than you have");
-                Console.WriteLine("This will be not executed");
-            }
-            
+                
+            }            
+            return this.balance;
         }
         public void MoneyTransfer(decimal amount,BankAccount destination,out decimal sourceBalance, out decimal destinationBalance)
         {
